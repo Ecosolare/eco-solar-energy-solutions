@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Pure Apple System Colors */
+  --background: 255 255 255;
+  --foreground: 0 0 0;
+  --card: 255 255 255;
+  --card-foreground: 0 0 0;
+  --popover: 255 255 255;
+  --popover-foreground: 0 0 0;
+  --primary: 0 122 255;
+  --primary-foreground: 255 255 255;
+  --secondary: 0 0 0;
+  --secondary-foreground: 255 255 255;
+  --muted: 245 245 247;
+  --muted-foreground: 134 134 139;
+  --accent: 0 113 227;
+  --accent-foreground: 255 255 255;
+  --destructive: 255 59 48;
+  --destructive-foreground: 255 255 255;
+  --border: 232 232 237;
+  --input: 232 232 237;
+  --ring: 0 122 255;
+  --radius: 8px;
+
+  /* Apple Color System */
+  --apple-blue: 0 122 255;
+  --apple-gray: 134 134 139;
+  --apple-gray-2: 174 174 178;
+  --apple-gray-3: 199 199 204;
+  --apple-gray-4: 209 209 214;
+  --apple-gray-5: 229 229 234;
+  --apple-gray-6: 245 245 247;
+  
+  /* Tesla Accent */
+  --tesla-black: 0 0 0;
+  --tesla-red: 255 0 0;
+  
+  /* Shadow System */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.06), 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  /* Apple/Tesla Style Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200;
+    @apply bg-blue-600 text-white rounded-full hover:bg-blue-700;
+    letter-spacing: -0.01em;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200;
+    @apply bg-white text-black border border-gray-300 rounded-full hover:bg-gray-50;
+    letter-spacing: -0.01em;
+  }
+  
+  .btn-apple-blue {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200;
+    @apply bg-blue-600 text-white rounded-full hover:bg-blue-700;
+    letter-spacing: -0.01em;
+  }
+  
+  .btn-apple-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200;
+    @apply bg-white text-black border border-gray-300 rounded-full hover:bg-gray-50;
+    letter-spacing: -0.01em;
+  }
+  
+  .btn-tesla {
+    @apply inline-flex items-center justify-center px-8 py-2 text-sm font-normal transition-all duration-200;
+    @apply bg-transparent text-black border-2 border-black rounded hover:bg-black hover:text-white;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Apple-style cards */
+  .card-apple {
+    @apply rounded-2xl bg-white p-6;
+    border: 1px solid rgb(232, 232, 237);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  
+  .card-apple:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Apple typography */
+  .text-display {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  
+  .text-headline {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  
+  .text-body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  /* Apple-style inputs */
+  .input-apple {
+    @apply w-full rounded-xl border px-4 py-3 text-sm transition-all duration-200;
+    @apply border-gray-300 bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20;
+    @apply placeholder:text-gray-500;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  }
+
+  /* Apple-style navigation */
+  .nav-apple {
+    @apply flex items-center space-x-8;
+  }
+  
+  .nav-apple a {
+    @apply text-sm font-medium text-gray-900 transition-colors duration-200 hover:text-blue-600;
+    letter-spacing: -0.01em;
+  }
+
+  /* Hero section Apple style */
+  .hero-apple {
+    @apply relative overflow-hidden bg-white;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  }
+
+  /* Apple-style stats */
+  .stat-apple {
+    @apply text-center;
+  }
+  
+  .stat-apple .number {
+    @apply block text-3xl font-bold text-black;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  .stat-apple .label {
+    @apply mt-1 text-sm text-gray-600;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  }
+
+  /* Apple-style feature grid */
+  .feature-grid {
+    @apply grid gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .feature-card {
+    @apply rounded-2xl bg-white p-6 transition-all duration-300 hover:shadow-lg;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-apple-sm);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-apple-lg);
+  }
+
+  /* Apple-style section spacing */
+  .section-apple {
+    @apply py-16 lg:py-24;
+  }
+
+  /* Region and language selector */
+  .region-selector {
+    @apply flex items-center space-x-4 text-sm text-gray-600;
+  }
+  
+  .region-selector button {
+    @apply flex items-center space-x-1 rounded-lg px-3 py-2 transition-colors duration-200 hover:bg-gray-100;
+  }
+}
+
+/* Apple-style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Apple-style selection */
+::selection {
+  background: rgba(0, 122, 255, 0.2);
+}
+
+/* Remove focus outlines for mouse users */
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+/* Apple-style loading animation */
+@keyframes apple-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+.apple-bounce {
+  animation: apple-bounce 1s ease-in-out infinite;
+}
+
+/* Apple-style fade in animations */
+@keyframes apple-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.apple-fade-in-up {
+  animation: apple-fade-in-up 0.6s ease-out forwards;
+}
+
+/* Apple-style scale animation */
+@keyframes apple-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.apple-scale-in {
+  animation: apple-scale-in 0.4s ease-out forwards;
+}
+
+/* Gradient Animation */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 6s ease infinite;
+}
